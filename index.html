@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTAG Color Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card">
+      <div class="header">
+        <p class="eyebrow">Gorilla Tag Tool</p>
+        <h1>GTAG Color Converter</h1>
+        <p class="subtitle">Convert a 0–9 GTAG color code into RGB and HEX instantly.</p>
+      </div>
+
+      <div class="top-grid">
+        <div class="preview-panel">
+          <div id="colorBox" class="color-box" aria-label="Color preview"></div>
+
+          <div class="mini-readouts">
+            <div class="readout">
+              <span class="label">GTAG</span>
+              <span id="gtagOutput" class="mono">0,0,0</span>
+            </div>
+            <div class="readout">
+              <span class="label">RGB</span>
+              <span id="rgbOutput" class="mono">rgb(0, 0, 0)</span>
+            </div>
+            <div class="readout">
+              <span class="label">HEX</span>
+              <span id="hexOutput" class="mono">#000000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls-panel">
+          <div class="input-row">
+            <label for="gtagInput">Enter GTAG code</label>
+            <div class="inline-row">
+              <input
+                type="text"
+                id="gtagInput"
+                placeholder="2,4,9"
+                autocomplete="off"
+                spellcheck="false"
+                inputmode="numeric"
+              />
+              <button id="applyBtn" type="button">Apply</button>
+            </div>
+            <p class="hint">Use commas only. Example: 2,4,9</p>
+            <p id="errorText" class="error" aria-live="polite"></p>
+          </div>
+
+          <div class="button-row">
+            <button id="copyHexBtn" type="button">Copy HEX</button>
+            <button id="copyCodeBtn" type="button">Copy GTAG</button>
+          </div>
+
+          <p id="statusText" class="status" aria-live="polite"></p>
+
+          <div class="explain-box">
+            <h2>How GTAG codes work</h2>
+            <p>
+              Each number goes from <strong>0 to 9</strong>. The site turns those
+              numbers into real RGB values from <strong>0 to 255</strong>, then shows
+              the HEX code too.
+            </p>
+            <p>
+              Example: <strong>2,4,9</strong> changes the sliders, updates the preview,
+              and shows the matching color in RGB and HEX.
+            </p>
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-block">
+              <div class="slider-top">
+                <label for="rSlider">Red</label>
+                <span id="rValue" class="mono">0</span>
+              </div>
+              <input type="range" min="0" max="9" value="0" id="rSlider" />
+            </div>
+
+            <div class="slider-block">
+              <div class="slider-top">
+                <label for="gSlider">Green</label>
+                <span id="gValue" class="mono">0</span>
+              </div>
+              <input type="range" min="0" max="9" value="0" id="gSlider" />
+            </div>
+
+            <div class="slider-block">
+              <div class="slider-top">
+                <label for="bSlider">Blue</label>
+                <span id="bValue" class="mono">0</span>
+              </div>
+              <input type="range" min="0" max="9" value="0" id="bSlider" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
